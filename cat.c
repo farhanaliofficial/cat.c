@@ -5,6 +5,7 @@
 Farhan Ali
 i.farhanali.dev@gmail.com
 */
+
 void read_file(const char* filename){
     FILE* file = fopen(filename, "rb");
     if(file == NULL){
@@ -12,10 +13,10 @@ void read_file(const char* filename){
         exit(1);
     }
 
-    int chr;
-    while((chr = fgetc(file)) != EOF){
-        printf("%c", (char)chr);
-    }
+    char chr;
+    while((chr = fgetc(file)) != EOF)
+        putchar(chr);
+    
     fclose(file);
 }
 int main(int argc, char* argv[]){
@@ -24,7 +25,6 @@ int main(int argc, char* argv[]){
         return 1;
     }
 
-    char* filename = argv[1];
-    read_file(filename);
+    read_file(argv[1]);
     return 0;
 }
